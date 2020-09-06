@@ -23,11 +23,15 @@ form.on("submit", dateselect);
 
 function dateselect() {
 
+    d3.event.preventDefault();
+
     var inputElement = d3.select("#datetime");
 
     var inputValue = inputElement.property("value");
 
     var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+
+    document.getElementsByTagName('tbody')[0].innerHTML = '';
 
     filteredData.forEach(function(ufoData) {
         var row = tbody.append("tr");
