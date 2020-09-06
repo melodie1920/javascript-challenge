@@ -104,4 +104,7 @@ function clearselect() {
             cell.text(value);  
         }); 
     });
+
+    filters = [];
+
 }
