@@ -12,7 +12,8 @@ tableData.forEach(function(ufoData) {
 });
 
 // Select the button
-var button = d3.select("#filter-btn");
+var filterButton = d3.select("#filter-btn");
+var clearButton = d3.select("#filter-btn-clear")
 
 // Select the form
 var form = d3.select("#form");
@@ -20,7 +21,8 @@ var form = d3.select("#form");
 var filters = [];
 
 // Create event handlers 
-button.on("click", dateselect);
+filterButton.on("click", dateselect);
+clearButton.on("click", clearselect);
 form.on("submit", dateselect);
 
 function dateselect() {
@@ -91,5 +93,15 @@ function dateselect() {
             var cell = row.append("td");
             cell.text(value);
         });
+    });
+}
+
+function clearselect() {
+    tableData.forEach(function(ufoData) {
+        var row = tbody.append("tr");
+        Object.entries(ufoData).forEach(function([key, value]) {
+            var cell = row.append("td");
+            cell.text(value);  
+        }); 
     });
 }
