@@ -36,10 +36,10 @@ function dateselect() {
     var inputElementShape = d3.select("#shape");
 
     var inputValueDate = inputElementDate.property("value");
-    var inputValueCity = inputElementCity.property("value");
-    var inputValueState = inputElementState.property("value");
-    var inputValueCountry = inputElementCountry.property("value");
-    var inputValueShape = inputElementShape.property("value");
+    var inputValueCity = inputElementCity.property("value").toLowerCase();
+    var inputValueState = inputElementState.property("value").toLowerCase();
+    var inputValueCountry = inputElementCountry.property("value").toLowerCase();
+    var inputValueShape = inputElementShape.property("value").toLowerCase();
 
     if (inputValueDate.length > 0) {
         filters.push({"datetime":inputValueDate});
